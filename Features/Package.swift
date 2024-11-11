@@ -17,6 +17,7 @@ let package = Package(
     targets: [
     .target(
         name: "AnyFeature",
-        dependencies: ["LocationModule", "CoreLocationModule"]),
+        dependencies: ["LocationModule", "CoreLocationModule"]
+    ),
     ]
 )

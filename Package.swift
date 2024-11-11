@@ -7,7 +7,9 @@ let package = Package(
     name: "Collection",
     products: [
         // Define your products here if needed, like libraries or executables
-        .library(name: "CollectionLibrary", targets: ["Commons", "Components", "Features"])
+        .library(name: "Commons", targets: ["Commons"]),
+        .library(name: "Components", targets: ["Components"]),
+        .library(name: "Features", targets: ["Features"])
     ],
     dependencies: [
         // Add dependencies from other sources if needed (e.g., external libraries)
