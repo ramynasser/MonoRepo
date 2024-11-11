@@ -6,19 +6,31 @@ import PackageDescription
 let package = Package(
     name: "Collection",
     products: [
-        // Define any products you need here, e.g., libraries that other packages can depend on.
-        .library(name: "Collection", targets: ["Commons"])
+        // Define your products here if needed, like libraries or executables
+        .library(name: "CollectionLibrary", targets: ["Commons", "Components", "Features"])
     ],
     dependencies: [
-        .package(path: "Commons") // Ensure "Commons" is a valid local package.
+        // Add dependencies from other sources if needed (e.g., external libraries)
     ],
     targets: [
+        // Reference to Commons Package
         .target(
             name: "Commons",
-            dependencies: [
-                .product(name: "CoreLocationModule", package: "Commons")
-            ],
+            dependencies: [],
             path: "Commons"
-        )
+        ),
+        // Reference to Components Package
+        .target(
+            name: "Components",
+            dependencies: ["Commons"],  // If Components depend on Commons
+            path: "Components"
+        ),
+        // Reference to Features Package
+        .target(
+            name: "Features",
+            dependencies: ["Commons", "Components"],  // If Features depend on Commons and Components
+            path: "Features"
+        ),
+        // Add other targets if required
     ]
 )
