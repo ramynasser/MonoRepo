@@ -1,8 +1,12 @@
 import LocationModule
 import CoreLocationModule
-
-final class SomeFeature: Feature {
-    var locationModule: LocationModule {
+import Foundation
+final public class SomeFeature: Feature {
+    public var locationModule: LocationModule {
         return CoreLocationModule()
+    }
+    
+    public func print() {
+        Swift.print("location")
     }
 }
