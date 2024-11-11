@@ -5,12 +5,20 @@ import PackageDescription
 
 let package = Package(
     name: "Collection",
-    products: [],
-    dependencies: [
-        .package(path: "Commons"),
-        .package(path: "Components"),
-        .package(path: "Features"),
-        .package(path: "Mapbox")
+    products: [
+        // Define any products you need here, e.g., libraries that other packages can depend on.
+        .library(name: "Collection", targets: ["Commons"])
     ],
-    targets: []
+    dependencies: [
+        .package(path: "Commons") // Ensure "Commons" is a valid local package.
+    ],
+    targets: [
+        .target(
+            name: "Commons",
+            dependencies: [
+                .product(name: "CoreLocationModule", package: "Commons")
+            ],
+            path: "Commons"
+        )
+    ]
 )
